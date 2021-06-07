@@ -7,7 +7,7 @@
     <body>
         <div id="app">
            <h1> CALCULATOR </h1>
-           <div></div>
+           <div>
         <input type="text" v-model="res"/>
         </div>
         <div id="keys">
@@ -20,10 +20,10 @@
         <button v-on:click="key(6)">6</button>
         <button v-on:click="key('-')">-</button><br>
         <button v-on:click="key(1)">1</button>
-        <button v-on:click="key('2')">2</button>
+        <button v-on:click="key(2)">2</button>
         <button v-on:click="key(3)">3</button>
         <button v-on:click="key('*')">*</button><br>
-        <button v-on:click="key('0')">0</button>
+        <button v-on:click="key(0)">0</button>
         <button v-on:click="key('/')">/</button>
         <button v-on:click="equal()">=</button>
     </div>
@@ -33,15 +33,14 @@
     var app= new Vue({
     el: '#app',
     data:{
-        res: 0
+        res: ""
     },
     methods: {
         key: function(num){
             return this.res += num;
         },
         equal: function(){
-            var equal= this.res;
-            return this.equal=eval(equal);
+            return this.res=eval(this.res);
         }
     }
 
