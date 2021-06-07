@@ -1,0 +1,50 @@
+<html>
+    <head>
+      <title> Calculator</title>
+      <script type= 'text/javascript' src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        
+    </head>
+    <body>
+        <div id="app">
+           <h1> CALCULATOR </h1>
+           <div></div>
+        <input type="text" v-model="res"/>
+        </div>
+        <div id="keys">
+        <button v-on:click="key(7)">7</button>
+        <button v-on:click="key(8)">8</button>
+        <button v-on:click="key(9)">9</button>
+        <button v-on:click="key('+')">+</button><br>
+        <button v-on:click="key(4)">4</button>
+        <button v-on:click="key(5)">5</button>
+        <button v-on:click="key(6)">6</button>
+        <button v-on:click="key('-')">-</button><br>
+        <button v-on:click="key(1)">1</button>
+        <button v-on:click="key('2')">2</button>
+        <button v-on:click="key(3)">3</button>
+        <button v-on:click="key('*')">*</button><br>
+        <button v-on:click="key('0')">0</button>
+        <button v-on:click="key('/')">/</button>
+        <button v-on:click="equal()">=</button>
+    </div>
+    </div>     
+    </body>
+<script>
+    var app= new Vue({
+    el: '#app',
+    data:{
+        res: 0
+    },
+    methods: {
+        key: function(num){
+            return this.res += num;
+        },
+        equal: function(){
+            var equal= this.res;
+            return this.equal=eval(equal);
+        }
+    }
+
+    })
+</script>
+</html>
