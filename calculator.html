@@ -6,8 +6,8 @@
     </head>
     <body>
         <div id="app">
-           <h1> CALCULATOR </h1>
-           <div>
+           <h1> <b>CALCULATOR</b> </h1>
+           <div id="cal">
         <input type="text" v-model="res"/>
         </div>
         <div id="keys">
@@ -26,9 +26,33 @@
         <button v-on:click="key(0)">0</button>
         <button v-on:click="key('/')">/</button>
         <button v-on:click="equal()">=</button>
+        <button v-on:click="clear()">clr</button>
     </div>
     </div>     
     </body>
+<style>
+    h1{
+        text-align: center;
+        font-size: 30px;    }
+    button{
+        font-size: 40px;
+        margin: 10px;
+        border: 10px;
+    }
+    #keys{
+        text-align: center;
+    }
+    #cal{
+        text-align: center;
+    }
+    input[type=text] {
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 20%;
+  height: 7%;
+}
+    
+</style>
 <script>
     var app= new Vue({
     el: '#app',
@@ -41,6 +65,9 @@
         },
         equal: function(){
             return this.res=eval(this.res);
+        },
+        clear: function(){
+            this.res=0;
         }
     }
 
